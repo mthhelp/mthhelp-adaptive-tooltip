@@ -7,80 +7,50 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
+<style>
+    body {
+    margin: 0;
+    background-color: rgb(58, 58, 58);
+    position: relative;
+    width: 300vw;
+    height: 200vh;
 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    transition: all 0.45s ease;
+}
+
+button {
+    position: relative;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+</style>
 <body>
     <button class="hastooltip"
         tool-tip-text="This is a button ">button
         with hover</button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const elementsWithTooltipClass = document.querySelectorAll(".hastooltip");
-
-            elementsWithTooltipClass.forEach(function (element) {
-                element.addEventListener("mouseenter", function () {
-                    hoverTimeout = setTimeout(() => {
-                        const tooltipText = element.getAttribute("tool-tip-text");
-                        const tooltip = document.createElement("div");
-
-                        tooltip.classList.add("tooltip");
-                        element.appendChild(tooltip);
-
-                        const elementRect = element.getBoundingClientRect();
-                        tooltip.textContent = tooltipText;
-
-
-                        tooltip.style.display = "none";
-                        tooltip.style.display = "block";
-                        tooltip.style.top = "100%";
-                        tooltip.style.left = "0";
-                        const tooltipRect = tooltip.getBoundingClientRect();
-                        tooltip.classList.add('playtootipshowanim');
-                        const tooltipRect2 = tooltip.getBoundingClientRect();
-
-                        if (elementRect.left < tooltipRect.width) {
-                            tooltip.style.left = '100%';
-                            console.log('would overflow the left');
-                        }
-
-                        // Check if the tooltip is outside the viewport on the right
-                        if (elementRect.right + tooltipRect.width > window.innerWidth) {
-                            tooltip.style.right = '100%';
-                            console.log('would overflow the right');
-                        }
-
-                        // Check if the tooltip is outside the viewport on the top
-                        if (elementRect.top < tooltipRect.height) {
-                            tooltip.style.top = '100%';
-                            console.log('would overflow the top');
-                        }
-
-                        // Check if the tooltip is outside the viewport on the bottom
-                        if (elementRect.bottom + tooltipRect.height > window.innerHeight) {
-                            tooltip.style.bottom = '100%';
-                            console.log('would overflow the bottom');
-                        }
-
-                        element.addEventListener("mouseleave", function () {
-
-                            tooltip.classList.add('tooltipremove');
-                            setTimeout(function () {
-                                tooltip.style.display = "none";
-                                element.removeChild(tooltip);
-                            }, 300);
-                        });
-                         
-                    }, 800);
-
-                    element.addEventListener("mouseleave", function () {
-                          clearTimeout(hoverTimeout);
-                    });
-
-
-                });
-            });
-        });
-    </script>
+    <script src="/adative-tooltip.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,49 @@
+
+.tooltip {
+    position: absolute;
+    background-color: #000000;
+    border-radius: 20px;
+    border: solid rgb(49, 49, 49) 2px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    z-index: 9999;
+    max-width: 100%;
+    height: min-content;
+}
+
+.playtootipshowanim {
+    animation: tootipshow 0.3s ease;
+}
+
+@keyframes tootipshow {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+        z-index: -1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tooltipremove {
+    animation: removett 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes removett {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+
+}

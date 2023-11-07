@@ -74,5 +74,5 @@ document.addEventListener("DOMContentLoaded", function () {
 const linkElement = document.createElement("link");
 linkElement.rel = "stylesheet";
 linkElement.type = "text/css";
-linkElement.href = "https://raw.githubusercontent.com/mthhelp/mthhelp-adative-tooltip/main/adative-tooltip.css";
+linkElement.href = "https://mthhelp-adaptive-tooltip-onejsfile.glitch.me/adaptive-tooltip.css";
 document.head.appendChild(linkElement);
